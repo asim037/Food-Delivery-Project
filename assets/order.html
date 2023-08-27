@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Food Planet</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg navigation-clean">
+        <div class="container"><a class="navbar-brand" href="#">FOOD PLANET<sub><sub>Quality Food</sub></sub></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">ORDER</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">GALLERY</a></li>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">Dropdown </a>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="index.html">HOME</a><a class="dropdown-item" href="#">ORDER</a><a class="dropdown-item" href="#">GALLERY</a></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form name="form1"> 
+            
+                    FastFood: <br><select name="fastfood" onchange="fun(form1)" >
+                         <option value="60">Burger</option>
+                         <option value="120">Rice</option>
+                         <option value="160">Zinger</option>
+                         <option value="150">Pie</option>
+                         <option value="80">Chips</option>
+                     </select><br><br>
+                     
+                     Quantity: <br><input type="text" name="text1" ><br><br>
+                 
+                     Soft Drinks: <br><select name="softdrinks"onchange="fun(form1)" >
+                         <option value="50">Pepsi</option>
+                         <option value="120">MilkShake</option>
+                         <option value="150">Mint Margarita</option>
+                         <option value="200">Oreo shake</option>
+                         <option value="80">Orange juice</option>
+         
+                     </select><br><br>
+                     Quantity: <br><input type="text" name="text2" ><br><br>
+         
+                     <input type="button" name="btn1" value="Click once" onclick="fun1(form1)"><br>
+                     Total Bill: <br><input type="text" name="text3" ><br><br>
+                 
+         
+                     
+         
+                 </form>
+                 <script>
+                    var sum=0;
+                    var mod1=0;
+                    var quan1=0;
+                    var mod2=0;
+                    var quan2=0;
+                    var mod=0;
+        
+                    function fun(f1){
+                        //var str;
+                        var n=f1.fastfood.length;
+                        
+                        for(i=0;i<n;i++){
+                            if(f1.fastfood[i].selected==true){
+                                mod1=parseInt(f1.fastfood[i].value);
+                                quan1=parseInt(f1.text1.value);
+                                mod1=mod1*quan1;
+                                console.log(mod1);
+                            }
+                        }
+        
+                       
+                        var m=f1.softdrinks.length;
+                        for(i=0;i<m;i++){
+                            if(f1.softdrinks[i].selected==true){
+                                mod2=parseInt(f1.softdrinks[i].value);
+                                quan2=parseInt(f1.text2.value);
+                                mod2=mod2*quan2;
+                                console.log(mod2);
+                                mod=mod1+mod2;
+                                sum+=mod;
+                                console.log(sum);
+        
+                            }
+                            
+                        }
+                      
+                       
+                                 
+        
+                    }
+                    function fun1(f1){
+                            //mod=mod1+mod2;
+                            f1.text3.value=sum;
+                        }
+                    
+                </script>
+            </div>
+        </div>
+    </div>
+    </body>
+    </html>
